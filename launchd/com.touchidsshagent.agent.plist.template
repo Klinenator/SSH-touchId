@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.touchidsshagent.agent</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>__BINARY_PATH__</string>
+        <string>--socket</string>
+        <string>__SOCKET_PATH__</string>
+        <string>--reason</string>
+        <string>__REASON__</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>TOUCHID_AGENT_KEY_ID</key>
+        <string>__KEY_ID__</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>__HOME__/Library/Logs/touchid-ssh-agent.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>__HOME__/Library/Logs/touchid-ssh-agent.error.log</string>
+</dict>
+</plist>
