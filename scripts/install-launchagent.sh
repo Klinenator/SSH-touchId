@@ -61,5 +61,9 @@ if [[ -n "$KEY_ID" ]]; then
   echo "Pinned key id:     $KEY_ID"
 fi
 echo
-echo "Add this to ~/.zshrc (or ~/.bashrc):"
-echo "export SSH_AUTH_SOCK=\"$SOCKET_PATH\""
+echo "Recommended (scoped; does not override regular SSH/Git):"
+echo "$PROJECT_ROOT/scripts/configure-shell-env.sh"
+echo
+echo "After reloading your shell, use:"
+echo "touchid_ssh_add -L"
+echo "touchid_ssh your-user@your-server.example.com"

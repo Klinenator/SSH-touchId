@@ -74,8 +74,4 @@ Unload custom agent:
 ~/src/emulator/touchid-ssh-agent/scripts/rollback-launchagent.sh
 ```
 
-Also remove shell override for the current shell session if needed:
-
-```bash
-unset SSH_AUTH_SOCK
-```
+If you previously set a global `SSH_AUTH_SOCK` export, remove that line from your shell rc file.

@@ -19,4 +19,4 @@ rm -f "$SOCKET_PATH"
 
 echo "Stopped $LABEL"
 echo "Removed socket: $SOCKET_PATH"
-echo "Optional shell rollback: unset SSH_AUTH_SOCK"
+echo "Optional shell rollback: remove the touchid helper block from your shell rc file"

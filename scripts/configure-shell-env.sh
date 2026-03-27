@@ -20,7 +20,24 @@ MARKER_BEGIN="# touchid-ssh-agent env"
 MARKER_END="# /touchid-ssh-agent env"
 BLOCK=$(cat <<BLOCK
 $MARKER_BEGIN
-export SSH_AUTH_SOCK="$SOCKET_PATH"
+# Scoped helper setup: do not override regular SSH/Git agent globally.
+export TOUCHID_AGENT_SOCKET="\${TOUCHID_AGENT_SOCKET:-$SOCKET_PATH}"
+
+with_touchid_agent() {
+  if [[ \$# -eq 0 ]]; then
+    echo "usage: with_touchid_agent <command> [args...]" >&2
+    return 1
+  fi
+  SSH_AUTH_SOCK="\${TOUCHID_AGENT_SOCKET}" "\$@"
+}
+
+touchid_ssh() {
+  ssh -o IdentityAgent="\${TOUCHID_AGENT_SOCKET}" "\$@"
+}
+
+touchid_ssh_add() {
+  SSH_AUTH_SOCK="\${TOUCHID_AGENT_SOCKET}" ssh-add "\$@"
+}
 $MARKER_END
 BLOCK
 )
@@ -33,13 +50,13 @@ if rg -F "$MARKER_BEGIN" "$RC_FILE" >/dev/null 2>&1; then
     !inblock { print }
   ' "$RC_FILE" > "$TMP_FILE"
   mv "$TMP_FILE" "$RC_FILE"
-  echo "Updated SSH_AUTH_SOCK block in $RC_FILE"
+  echo "Updated touchid helper block in $RC_FILE"
 else
   {
     echo
     echo "$BLOCK"
   } >> "$RC_FILE"
-  echo "Added SSH_AUTH_SOCK block to $RC_FILE"
+  echo "Added touchid helper block to $RC_FILE"
 fi
 
-echo "Current socket path: $SOCKET_PATH"
+echo "Default Touch ID socket path: $SOCKET_PATH"

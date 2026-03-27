@@ -48,5 +48,6 @@ If needed on Mac (stop custom agent):
 
 ```bash
 ~/src/emulator/touchid-ssh-agent/scripts/rollback-launchagent.sh
-unset SSH_AUTH_SOCK
 ```
+
+If you previously set a global `SSH_AUTH_SOCK` export, remove that line from your shell rc file.

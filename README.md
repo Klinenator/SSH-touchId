@@ -17,16 +17,16 @@ Install and start LaunchAgent:
 ~/src/emulator/touchid-ssh-agent/scripts/install-launchagent.sh
 ```
 
-Set `SSH_AUTH_SOCK` in your shell startup file:
+Install scoped shell helpers (recommended; does not change regular SSH/Git behavior):
 
 ```bash
 ~/src/emulator/touchid-ssh-agent/scripts/configure-shell-env.sh
 ```
 
-Open a new terminal (or `source ~/.zshrc`) and verify identity visibility:
+Open a new terminal (or `source ~/.zshrc`) and verify Touch ID-managed identity visibility:
 
 ```bash
-ssh-add -L
+touchid_ssh_add -L
 ```
 
 Run an agent-only SSH test:
@@ -51,7 +51,7 @@ Dry-run release (no push):
 
 - `launchd/com.touchidsshagent.agent.plist.template`: LaunchAgent template used by install script.
 - `scripts/install-launchagent.sh`: Installs/reloads LaunchAgent and starts the daemon.
-- `scripts/configure-shell-env.sh`: Adds or updates an idempotent `SSH_AUTH_SOCK` block in your shell rc file.
+- `scripts/configure-shell-env.sh`: Adds or updates an idempotent scoped helper block in your shell rc file (no global `SSH_AUTH_SOCK` override).
 - `scripts/rollback-launchagent.sh`: Stops/unloads LaunchAgent and removes the agent socket.
 - `scripts/test-agent-login.sh`: Runs an agent-only SSH login test against a host.
 - `scripts/release.sh`: Runs tests, validates repo state, and pushes release branch.
