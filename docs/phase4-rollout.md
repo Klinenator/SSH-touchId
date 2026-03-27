@@ -47,13 +47,13 @@ ssh -vv -F /dev/null \
 Or use the helper script:
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/test-agent-login.sh your-server.example.com your-user
+~/src/emulator/touchid-ssh-agent/scripts/test-agent-login.sh your-user@your-server.example.com
 ```
 
 If DNS has not been updated yet, use the temporary direct-IP path:
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/test-agent-login.sh 203.0.113.45 your-user
+~/src/emulator/touchid-ssh-agent/scripts/test-agent-login.sh your-user@203.0.113.45
 ```
 
 Expected behavior in an interactive Terminal session:

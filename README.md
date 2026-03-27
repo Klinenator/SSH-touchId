@@ -32,7 +32,7 @@ touchid_ssh_add -L
 Run an agent-only SSH test:
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/test-agent-login.sh your-server.example.com your-user
+~/src/emulator/touchid-ssh-agent/scripts/test-agent-login.sh your-user@your-server.example.com
 ```
 
 Run release push flow (tests + push to `origin/main`):
