@@ -47,13 +47,13 @@ ssh -vv -F /dev/null \
 Or use the helper script:
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/test-agent-login.sh your-user@your-server.example.com
+~/src/touchid-ssh-agent/scripts/test-agent-login.sh your-user@your-server.example.com
 ```
 
 If DNS has not been updated yet, use the temporary direct-IP path:
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/test-agent-login.sh your-user@203.0.113.45
+~/src/touchid-ssh-agent/scripts/test-agent-login.sh your-user@203.0.113.45
 ```
 
 Expected behavior in an interactive Terminal session:
@@ -71,7 +71,7 @@ During rollout, keep `keyboard-interactive` enabled server-side as fallback unti
 Unload custom agent:
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/rollback-launchagent.sh
+~/src/touchid-ssh-agent/scripts/rollback-launchagent.sh
 ```
 
 If you previously set a global `SSH_AUTH_SOCK` export, remove that line from your shell rc file.

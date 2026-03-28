@@ -7,20 +7,20 @@ Touch ID-gated SSH agent prototype for macOS.
 Build:
 
 ```bash
-cd ~/src/emulator/touchid-ssh-agent
+cd ~/src/touchid-ssh-agent
 swift build
 ```
 
 Install and start LaunchAgent:
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/install-launchagent.sh
+~/src/touchid-ssh-agent/scripts/install-launchagent.sh
 ```
 
 Install scoped shell helpers (recommended; does not change regular SSH/Git behavior):
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/configure-shell-env.sh
+~/src/touchid-ssh-agent/scripts/configure-shell-env.sh
 ```
 
 Open a new terminal (or `source ~/.zshrc`) and verify Touch ID-managed identity visibility:
@@ -32,19 +32,19 @@ touchid_ssh_add -L
 Run an agent-only SSH test:
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/test-agent-login.sh your-user@your-server.example.com
+~/src/touchid-ssh-agent/scripts/test-agent-login.sh your-user@your-server.example.com
 ```
 
 Run release push flow (tests + push to `origin/main`):
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/release.sh
+~/src/touchid-ssh-agent/scripts/release.sh
 ```
 
 Dry-run release (no push):
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/release.sh --dry-run
+~/src/touchid-ssh-agent/scripts/release.sh --dry-run
 ```
 
 ## Files

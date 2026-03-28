@@ -18,7 +18,7 @@
 Run from your Mac:
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/audit-server-ssh.sh \
+~/src/touchid-ssh-agent/scripts/audit-server-ssh.sh \
   your-server.example.com \
   ~/.ssh/your-ssh-key.pem \
   your-user \
@@ -47,7 +47,7 @@ sudo sshd -t && sudo systemctl reload ssh
 If needed on Mac (stop custom agent):
 
 ```bash
-~/src/emulator/touchid-ssh-agent/scripts/rollback-launchagent.sh
+~/src/touchid-ssh-agent/scripts/rollback-launchagent.sh
 ```
 
 If you previously set a global `SSH_AUTH_SOCK` export, remove that line from your shell rc file.
